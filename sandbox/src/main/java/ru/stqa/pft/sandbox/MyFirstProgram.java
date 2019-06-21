@@ -14,7 +14,7 @@ public class MyFirstProgram {
     System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + r.area());
 
     Point p1 = new Point(10, 0);
-    Point p2 = new Point(-10, 0);
+    Point p2 = new Point(0, 0);
 
     System.out.println("Расстояние между двумя точками на двумерной плоскости = " + distance(p1, p2));
   }
@@ -24,7 +24,7 @@ public class MyFirstProgram {
   }
 
   public static double distance(Point p1, Point p2) {
-    return Math.sqrt((p2.x - p1.x)*(p2.x - p1.x) + (p2.y - p1.y)*(p2.y - p1.y));
+    return Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2));
   }
 
 }
