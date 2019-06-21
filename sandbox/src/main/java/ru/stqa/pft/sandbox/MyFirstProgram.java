@@ -13,13 +13,8 @@ public class MyFirstProgram {
     Rectangle r = new Rectangle(4, 6);
     System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + r.area());
 
-    Point p1 = new Point();
-    p1.x = 1;
-    p1.y = 0;
-
-    Point p2 = new Point();
-    p2.x = 2;
-    p2.y = 0;
+    Point p1 = new Point(10, 0);
+    Point p2 = new Point(-10, 0);
 
     System.out.println("Расстояние между двумя точками на двумерной плоскости = " + distance(p1, p2));
   }
