@@ -8,7 +8,7 @@ public class MyFirstProgram {
 
     double a = 8.0;
     double s = a * a;
-    System.out.println("Площадь квадрата со стороной " + a + " = " + s);
+    System.out.println("РџР»РѕС‰Р°РґСЊ РєРІР°РґСЂР°С‚Р° СЃРѕ СЃС‚РѕСЂРѕРЅРѕР№ " + a + " = " + s);
   }
 
 }
