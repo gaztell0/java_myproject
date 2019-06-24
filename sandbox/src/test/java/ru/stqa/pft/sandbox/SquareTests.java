@@ -1,7 +1,6 @@
 package ru.stqa.pft.sandbox;
 
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
 
 public class SquareTests {
