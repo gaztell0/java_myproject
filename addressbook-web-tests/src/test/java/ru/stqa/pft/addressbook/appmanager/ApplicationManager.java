@@ -12,7 +12,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-  public WebDriver wd;
+  WebDriver wd;
 
   public void init() {
     wd = new FirefoxDriver();
