@@ -34,16 +34,8 @@ public class ApplicationManager {
     return groupHelper;
   }
 
-  public SessionHelper getSessionHelper() {
-    return sessionHelper;
-  }
-
   public void logout() {
     sessionHelper.logout();
-  }
-
-  public ContactHelper getContactHelper() {
-    return contactHelper;
   }
 
   public void returnToHomePage() {
