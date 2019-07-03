@@ -38,6 +38,27 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("January");
     click(By.xpath("//div[@id='content']/form/select[2]/option[2]"));
     type(By.name("byear"), contactData.getBirthdayyear());
-    click(By.name("theform"));
+    //click(By.name("theform"));
   }
+
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteSelectedContact() {
+    click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]"));
+  }
+
+  public void closeAlertWindow() {
+    wd.switchTo().alert().accept();
+  }
+
+  public void initContactModification() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
+
 }
