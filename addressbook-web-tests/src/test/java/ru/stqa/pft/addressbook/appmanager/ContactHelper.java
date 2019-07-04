@@ -33,10 +33,10 @@ public class ContactHelper extends HelperBase {
     type(By.name("email2"), contactData.getEmail2());
     click(By.name("bday"));
     new Select(wd.findElement(By.name("bday"))).selectByVisibleText("1");
-    click(By.xpath("//div[@id='content']/form/select/option[3]"));
+    click(By.xpath("//option[@value='1']"));
     click(By.name("bmonth"));
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("January");
-    click(By.xpath("//div[@id='content']/form/select[2]/option[2]"));
+    click(By.xpath("//option[@value='January']"));
     type(By.name("byear"), contactData.getBirthdayyear());
   }
 
@@ -45,7 +45,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void deleteSelectedContact() {
-    click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]"));
+    click(By.xpath("//input[@value='Delete']"));
   }
 
   public void closeAlertWindow() {
