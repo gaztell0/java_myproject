@@ -38,7 +38,6 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("January");
     click(By.xpath("//div[@id='content']/form/select[2]/option[2]"));
     type(By.name("byear"), contactData.getBirthdayyear());
-    //click(By.name("theform"));
   }
 
   public void selectContact() {
