@@ -61,4 +61,5 @@ public class ApplicationManager {
   public void gotoAddnewPage() {
     navigationHelper.gotoAddnewPage();
   }
+
 }
