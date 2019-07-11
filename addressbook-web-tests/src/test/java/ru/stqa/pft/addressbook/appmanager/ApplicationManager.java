@@ -32,7 +32,7 @@ public class ApplicationManager {
       wd = new InternetExplorerDriver();
     }
 
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
@@ -53,28 +53,13 @@ public class ApplicationManager {
     return contactHelper;
   }
 
-  public void logout() {
-    sessionHelper.logout();
-  }
-
-  public void returnToHomePage() {
-    contactHelper.returnToHomePage();
-  }
-
-  public void initContactCreation() {
-    contactHelper.initContactCreation();
-  }
-
-  public void fillContactForm(ContactData contactData) {
-    contactHelper.fillContactForm(contactData);
-  }
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
   }
 
-  public void gotoAddnewPage() {
-    navigationHelper.gotoAddnewPage();
+  public  SessionHelper getSessionHelper() {
+    return sessionHelper;
   }
 
 }
