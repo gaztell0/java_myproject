@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.tests.chrome;
+package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
 
