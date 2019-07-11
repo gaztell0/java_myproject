@@ -53,4 +53,21 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
+  public void gotoHomePage() {
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
+    click(By.linkText("home"));
+  }
+
+  public void createContact(ContactData contact, boolean b) {
+    gotoAddnewPage();
+    fillContactForm(contact, b);
+    initContactCreation();
+    gotoHomePage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
 }
