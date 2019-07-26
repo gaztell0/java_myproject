@@ -24,6 +24,13 @@ public class ContactHelper extends HelperBase {
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
+    type(By.name("address"), contactData.getHomeAddress());
+    type(By.name("home"), contactData.getHomePhone());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
+    type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -93,7 +100,6 @@ public class ContactHelper extends HelperBase {
     gotoHomePage();
   }
 
-
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -114,19 +120,18 @@ public class ContactHelper extends HelperBase {
     List<WebElement> cellsLasttname = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[2]"));
     List<WebElement> cellsFirstname = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[3]"));
     List<WebElement> cellsAddress = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[4]"));
-    List<WebElement> cellsEmail = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[5]"));
+    List<WebElement> cellsAllEmails = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[5]"));
     List<WebElement> cellsAllPhones = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[6]"));
     for (int i = 0; i < row.size() ; i++) {
       String firstname =  cellsFirstname.get(i).getText();
       String lastname = cellsLasttname.get(i).getText();
       String address = cellsAddress.get(i).getText();
-      String email = cellsEmail.get(i).getText();
+      String email = cellsAllEmails.get(i).getText();
       String allPhones = cellsAllPhones.get(i).getText();
-      String[] phones = allPhones.split("\n");
+      //String[] phones = allPhones.split("\n");
       int id = Integer.parseInt(row.get(i).findElement(By.tagName("input")).getAttribute("value"));
       contactCash.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-              .withHomeAddress(address).withHomePhone(phones[0]).withMobilePhone(phones[1])
-              .withWorkPhone(phones[2]).withEmail(email));
+              .withHomeAddress(address).withAllPhones(allPhones).withEmail(email));
     }
     return new Contacts(contactCash);
   }
@@ -140,9 +145,12 @@ public class ContactHelper extends HelperBase {
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
     String email = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
-            .withHomeAddress(address).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withEmail(email);
+            .withHomeAddress(address).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withEmail(email)
+            .withEmail2(email2).withEmail3(email3);
 
 
   }
