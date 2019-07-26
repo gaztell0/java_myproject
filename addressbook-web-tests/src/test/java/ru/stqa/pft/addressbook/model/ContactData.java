@@ -8,6 +8,32 @@ public class ContactData {
   private String firstname;
   private String lastname;
   private String group;
+  private String homeAddress;
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
+  private String email;
+
+
+  public String getHomeAddress() {
+    return homeAddress;
+  }
+
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
+  public String getEmail() {
+    return email;
+  }
 
   public String getFirstname() {
     return firstname;
@@ -57,6 +83,33 @@ public class ContactData {
 
   public ContactData withGroup(String group) {
     this.group = group;
+    return this;
+  }
+
+  public ContactData withHomeAddress(String homeAddress) {
+    this.homeAddress = homeAddress;
+    return this;
+  }
+
+
+
+  public ContactData withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
+
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
     return this;
   }
 
