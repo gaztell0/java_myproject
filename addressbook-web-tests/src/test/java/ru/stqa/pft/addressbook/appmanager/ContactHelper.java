@@ -113,11 +113,20 @@ public class ContactHelper extends HelperBase {
     List<WebElement> row = wd.findElements(By.name("entry"));
     List<WebElement> cellsLasttname = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[2]"));
     List<WebElement> cellsFirstname = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[3]"));
+    List<WebElement> cellsAddress = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[4]"));
+    List<WebElement> cellsEmail = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[5]"));
+    List<WebElement> cellsAllPhones = wd.findElements(By.xpath("/html/body/div/div[4]/form[2]/table/tbody/tr/td[6]"));
     for (int i = 0; i < row.size() ; i++) {
       String firstname =  cellsFirstname.get(i).getText();
       String lastname = cellsLasttname.get(i).getText();
+      String address = cellsAddress.get(i).getText();
+      String email = cellsEmail.get(i).getText();
+      String allPhones = cellsAllPhones.get(i).getText();
+      String[] phones = allPhones.split("\n");
       int id = Integer.parseInt(row.get(i).findElement(By.tagName("input")).getAttribute("value"));
-      contactCash.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
+      contactCash.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
+              .withHomeAddress(address).withHomePhone(phones[0]).withMobilePhone(phones[1])
+              .withWorkPhone(phones[2]).withEmail(email));
     }
     return new Contacts(contactCash);
   }
