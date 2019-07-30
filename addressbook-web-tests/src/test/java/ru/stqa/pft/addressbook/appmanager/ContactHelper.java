@@ -24,6 +24,7 @@ public class ContactHelper extends HelperBase {
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
+    attach(By.name("photo"), contactData.getPhoto());
     type(By.name("address"), contactData.getHomeAddress());
     type(By.name("home"), contactData.getHomePhone());
     type(By.name("mobile"), contactData.getMobilePhone());
@@ -128,7 +129,6 @@ public class ContactHelper extends HelperBase {
       String address = cellsAddress.get(i).getText();
       String email = cellsAllEmails.get(i).getText();
       String allPhones = cellsAllPhones.get(i).getText();
-      //String[] phones = allPhones.split("\n");
       int id = Integer.parseInt(row.get(i).findElement(By.tagName("input")).getAttribute("value"));
       contactCash.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
               .withHomeAddress(address).withAllPhones(allPhones).withEmail(email));
