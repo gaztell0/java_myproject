@@ -22,5 +22,21 @@
     "homeAddress": "test2",
     "homePhone": "test2",
     "email": "test2"
+  },
+  {
+    "firstname": "test3",
+    "lastname": "test3",
+    "group": "test3",
+    "homeAddress": "test3",
+    "homePhone": "test3",
+    "email": "test3"
+  },
+  {
+    "firstname": "test4",
+    "lastname": "test4",
+    "group": "test4",
+    "homeAddress": "test4",
+    "homePhone": "test4",
+    "email": "test4"
   }
 ]
