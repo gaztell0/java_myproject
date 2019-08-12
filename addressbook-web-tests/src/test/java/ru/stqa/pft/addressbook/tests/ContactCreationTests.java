@@ -7,7 +7,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -63,7 +62,7 @@ public class ContactCreationTests extends TestBase {
     return list.iterator();
   }
 
-  @Test(dataProvider = "validGroupsFromXml")
+  @Test(dataProvider = "validGroupsFromJson")
   public void testContactCreation(ContactData contact) {
     Contacts before = app.contact().all();
     app.contact().create(contact, true);
