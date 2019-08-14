@@ -122,25 +122,6 @@ public class ContactData {
     return email;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return id == that.id &&
-            Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname) &&
-            Objects.equals(group, that.group) &&
-            Objects.equals(homeAddress, that.homeAddress) &&
-            Objects.equals(homePhone, that.homePhone) &&
-            Objects.equals(email, that.email);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, firstname, lastname, group, homeAddress, homePhone, email);
-  }
-
   public String getFirstname() {
     return firstname;
   }
@@ -230,13 +211,33 @@ public class ContactData {
   }
 
   @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id &&
+            Objects.equals(firstname, that.firstname) &&
+            Objects.equals(lastname, that.lastname) &&
+            Objects.equals(homeAddress, that.homeAddress) &&
+            Objects.equals(homePhone, that.homePhone) &&
+            Objects.equals(email, that.email);
   }
 
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, firstname, lastname, homeAddress, homePhone, email);
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", homeAddress='" + homeAddress + '\'' +
+            ", homePhone='" + homePhone + '\'' +
+            ", email='" + email + '\'' +
+            '}';
+  }
 
 }

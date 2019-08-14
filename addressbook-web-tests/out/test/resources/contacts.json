@@ -6,5 +6,37 @@
     "homeAddress": "test0",
     "homePhone": "test0",
     "email": "test0"
+  },
+  {
+    "firstname": "test1",
+    "lastname": "test1",
+    "group": "test1",
+    "homeAddress": "test1",
+    "homePhone": "test1",
+    "email": "test1"
+  },
+  {
+    "firstname": "test2",
+    "lastname": "test2",
+    "group": "test2",
+    "homeAddress": "test2",
+    "homePhone": "test2",
+    "email": "test2"
+  },
+  {
+    "firstname": "test3",
+    "lastname": "test3",
+    "group": "test3",
+    "homeAddress": "test3",
+    "homePhone": "test3",
+    "email": "test3"
+  },
+  {
+    "firstname": "test4",
+    "lastname": "test4",
+    "group": "test4",
+    "homeAddress": "test4",
+    "homePhone": "test4",
+    "email": "test4"
   }
 ]
