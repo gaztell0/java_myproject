@@ -74,14 +74,17 @@ public class ContactData {
   @Transient
   private String allEmails;
 
+
   @Expose
   @Column(name = "photo")
   @Type(type = "text")
+  @Transient
   private String photo;
 
   public File getPhoto() {
     return new File(photo);
   }
+
 
   public String getEmail2() {
     return email2;
@@ -140,6 +143,7 @@ public class ContactData {
     this.photo = photo.getPath();
     return this;
   }
+
 
   public ContactData withId(int id) {
     this.id = id;
