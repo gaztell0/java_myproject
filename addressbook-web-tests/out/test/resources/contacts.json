@@ -38,13 +38,5 @@
     "homeAddress": "test4",
     "homePhone": "test4",
     "email": "test4"
-  },
-  {
-    "firstname": "test5",
-    "lastname": "test5",
-    "group": "test5",
-    "homeAddress": "test5",
-    "homePhone": "test5",
-    "email": "test5"
   }
 ]
