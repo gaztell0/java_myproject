@@ -175,4 +175,22 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
   }
 
+  public void contactGroupPage(ContactData cRemove) {
+    Select select = new Select(wd.findElement(By.name("group")));
+    select.selectByVisibleText(cRemove.getGroups().iterator().next().getName());
+  }
+
+  public void removeFromGroup(ContactData cRemove) {
+    Assert.assertEquals(cRemove.getGroups().size(), 1);
+    selectContactById(cRemove.getId());
+    click(By.name("remove"));
+    confirmRemoveGroup(cRemove);
+  }
+
+  public void confirmRemoveGroup(ContactData cRemove) {
+    wd.findElement(By.tagName("h1")).getText().equals("Groups");
+    Assert.assertTrue(isElementPresent(By.linkText("group page \""
+            + cRemove.getGroups().iterator().next().getName() +"\"")));
+  }
+
 }
