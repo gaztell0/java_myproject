@@ -23,6 +23,7 @@ public class ApplicationManager {
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
   private LoginHelper loginHelper;
+  private NavigationHelper navigationHelper;
 
 
   public ApplicationManager(String browser) {
@@ -97,7 +98,14 @@ public class ApplicationManager {
     if (loginHelper == null) {
       loginHelper = new LoginHelper(this);
     }
-    return new LoginHelper(this);
+    return loginHelper;
+  }
+
+  public NavigationHelper goTo() {
+    if (navigationHelper == null) {
+      navigationHelper = new NavigationHelper(this);
+    }
+    return navigationHelper;
   }
 
 }
