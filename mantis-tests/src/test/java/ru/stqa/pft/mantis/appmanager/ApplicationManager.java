@@ -24,6 +24,8 @@ public class ApplicationManager {
   private JamesHelper jamesHelper;
   private LoginHelper loginHelper;
   private NavigationHelper navigationHelper;
+  private DbHelper dbHelper;
+  private ChangePwHelper changePwHelper;
 
 
   public ApplicationManager(String browser) {
@@ -108,4 +110,17 @@ public class ApplicationManager {
     return navigationHelper;
   }
 
+  public DbHelper db() {
+    if (dbHelper == null) {
+      dbHelper = new DbHelper(this);
+    }
+    return dbHelper;
+  }
+
+  public ChangePwHelper change() {
+    if (changePwHelper == null) {
+      changePwHelper = new ChangePwHelper(this);
+    }
+    return changePwHelper;
+  }
 }

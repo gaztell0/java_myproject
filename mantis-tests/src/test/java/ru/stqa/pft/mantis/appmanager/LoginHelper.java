@@ -16,4 +16,8 @@ public class LoginHelper extends HelperBase {
     wd.findElement(By.id("login-form")).submit();
   }
 
+  public void logout() {
+    wd.get(app.getProperty("web.baseUrl") + "/logout_page.php");
+  }
+
 }
