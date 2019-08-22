@@ -16,4 +16,11 @@ public class ChangePwHelper extends HelperBase {
     click(By.xpath("//*[@id=\"manage-user-reset-form\"]"));
   }
 
+  public void changePw(String resetLink, String password) {
+    wd.get(resetLink);
+    type(By.name("password"), password);
+    type(By.name("password_confirm"), password);
+    click(By.cssSelector("button[type='submit']"));
+  }
+
 }
