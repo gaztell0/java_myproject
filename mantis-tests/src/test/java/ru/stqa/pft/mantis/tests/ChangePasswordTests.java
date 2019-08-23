@@ -43,5 +43,4 @@ public class ChangePasswordTests extends TestBase {
     return regex.getText(mailMessage.text);
   }
 
-
 }
