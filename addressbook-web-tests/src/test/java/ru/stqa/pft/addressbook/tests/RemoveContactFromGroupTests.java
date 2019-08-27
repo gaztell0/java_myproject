@@ -8,12 +8,9 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.equalTo;
 
 public class RemoveContactFromGroupTests extends TestBase {
-
-  private Contacts contacts;
-  private Groups groups;
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -26,29 +23,25 @@ public class RemoveContactFromGroupTests extends TestBase {
       app.contact().create(new ContactData()
               .withFirstname("Михаил").withLastname("Волков").withGroup("test1"), true);
     }
-    ContactData contact = app.db().contacts().iterator().next();
-    if (contact.getGroups().size() == 0) {
-      GroupData group = app.db().groups().iterator().next();
-      app.goTo().gotoHomePage();
-      app.contact().addContactToGroup(contact, group);
+
+    if (app.db().groups().iterator().next().getContacts().size() == 0) {
+     Groups groups = app.db().groups();
+     GroupData groupToAdded = groups.iterator().next();
+     Contacts contacts = app.db().contacts();
+     ContactData addedContact = contacts.iterator().next();
+     app.contact().addContactToGroup(addedContact, groupToAdded);
     }
   }
 
   @Test
   public void testRemoveContactFromGroup() {
-    contacts = app.db().contacts();
-    groups = app.db().groups();
-    ContactData cRemove = contacts.iterator().next();
-    GroupData gRemove = groups.iterator().next();
     app.goTo().gotoHomePage();
-    app.contact().contactGroupPage(cRemove);
-    app.contact().removeFromGroup(cRemove);
-
-    app.db().cycleByGroups(gRemove);
-    app.db().cycleByContacts(cRemove);
-
-    assertThat(cRemove.getGroups(), not(cRemove));
-    assertThat(gRemove.getContacts(), not(gRemove));
+    Groups gBefore = app.db().groups();
+    GroupData group = gBefore.iterator().next();
+    ContactData contactToRemove = group.getContacts().iterator().next();
+    app.contact().removeFromGroup(group, contactToRemove);
+    Groups gAfter = app.db().groups();
+    assertThat(gAfter.iterator().next().getContacts(), equalTo(gBefore.iterator().next().getContacts().withRemoved(contactToRemove)));
   }
 
 }

@@ -181,11 +181,12 @@ public class ContactHelper extends HelperBase {
     select.selectByVisibleText(cRemove.getGroups().iterator().next().getName());
   }
 
-  public void removeFromGroup(ContactData cRemove) {
-    Assert.assertEquals(cRemove.getGroups().size(), 1);
-    selectContactById(cRemove.getId());
-    click(By.name("remove"));
-    confirmRemoveGroup(cRemove);
+  public void removeFromGroup(GroupData group, ContactData contactToRemove) {
+    wd.findElement(By.name("group")).click();
+    new Select(wd.findElement(By.name("group"))).selectByValue(String.valueOf(group.getId()));
+    wd.findElement(By.name("group")).click();
+    wd.findElement(By.id(String.valueOf(contactToRemove.getId()))).click();
+    wd.findElement(By.name("remove")).click();
   }
 
   public void confirmRemoveGroup(ContactData cRemove) {
