@@ -24,7 +24,6 @@ public class AddContactToGroupTests extends TestBase {
     }
   }
 
-
   @Test
   public void testAddContactToGroup() {
     ContactData cBefore = app.db().contacts().iterator().next();
@@ -39,4 +38,5 @@ public class AddContactToGroupTests extends TestBase {
     MatcherAssert.assertThat(cAfter.getGroups(), hasItem(gBefore));
     MatcherAssert.assertThat(gAfter.getContacts(), hasItem(cBefore));
   }
+
 }
