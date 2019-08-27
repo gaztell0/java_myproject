@@ -156,11 +156,9 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void addContactToGroup(ContactData contact, GroupData addedGroup) {
-    selectContactById(contact.getId());
-    selectGroupToAdd(addedGroup);
-    clickAdd();
-    goToGroupPage(addedGroup.getId());
+  public void addContactToGroup(ContactData addedToGroupContact, GroupData groupToAddedContact) {
+    selectContactById(addedToGroupContact.getId());
+    selectGroupToAdd(groupToAddedContact.getId());
   }
 
   public void goToGroupPage(int id) {
@@ -171,8 +169,11 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.name("add")).click();
   }
 
-  public void selectGroupToAdd(GroupData group) {
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+  public void selectGroupToAdd(int id) {
+    wd.findElement(By.name("to_group")).click();
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(String.valueOf(id));
+    wd.findElement(By.name("to_group")).click();
+    wd.findElement(By.name("add")).click();
   }
 
   public void contactGroupPage(ContactData cRemove) {
