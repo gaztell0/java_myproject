@@ -23,6 +23,7 @@
     "name": "test4",
     "header": "header4",
     "footer": "footer4"
+<<<<<<< HEAD
   },
   {
     "name": "test5",
@@ -48,5 +49,7 @@
     "name": "test9",
     "header": "header9",
     "footer": "footer9"
+=======
+>>>>>>> 93252213e9da7d2b92035f29badfc273e67cbb8f
   }
 ]
